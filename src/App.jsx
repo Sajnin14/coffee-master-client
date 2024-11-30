@@ -77,9 +77,6 @@ function App() {
         }
       </div>
 
-      <Link to='/update'>Update</Link>
-      <Link to='/add'>Add Coffee</Link>
-
 
     </>
   )
