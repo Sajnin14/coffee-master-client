@@ -11,6 +11,8 @@ import Update from './components/Update.jsx';
 import Home from './components/Home.jsx';
 import Signin from './components/Auth/Signin.jsx';
 import Signup from './components/Auth/Signup.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
+import Users from './components/Users.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,11 @@ const router = createBrowserRouter([
       {
         path: '/auth/signup',
         element: <Signup></Signup>
+      },
+      {
+        path: '/users',
+        element: <Users></Users>,
+        loader: () => fetch('http://localhost:5000/users')
       }
 
     ]
@@ -49,6 +56,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider><RouterProvider router={router} /></AuthProvider>
   </StrictMode>,
 )
